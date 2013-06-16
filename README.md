@@ -34,11 +34,11 @@ github repository. You can read more about [devtools by clicking here](
 http://github.com/hadley/devtools).
 
 Example:
-`install.packages('devtools') #Installs devtools from CRAN`
-
-`library(devtools)`
-
-`install_github('datawrapper', username='chibondking')`
+```R
+install.packages('devtools') #Installs devtools from CRAN
+library(devtools)
+install_github('datawrapper', username='chibondking')
+```
 
 This will ensure that you are installing the latest development version of this
 package.
