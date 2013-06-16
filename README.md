@@ -70,8 +70,8 @@ getSymbols.Fogbank(Symbols = NULL,
 
 ```
 
-Parameters:
------------
+####Parameters:
+
 * Symbols: a character vector specifying the names of each symbol to load
 * env: where to create the symbol objects
 * return.class: what type of class should the symbol object be returned as
