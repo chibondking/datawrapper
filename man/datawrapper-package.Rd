@@ -44,4 +44,3 @@ Maintainer: Cedrick Johnson <cedrickj@atysbonds.com>
 \seealso{
   \code{\link[quantmod]{quantmod}}
 }
-}
