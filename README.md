@@ -36,7 +36,9 @@ http://github.com/hadley/devtools).
 Example:
 >
 > install.packages('devtools') #Installs devtools from CRAN
+>
 > library(devtools)
+>
 > install_github('datawrapper', username='chibondking')
 
 This will ensure that you are installing the latest development version of this
