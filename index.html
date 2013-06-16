@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Datawrapper by chibondking</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Datawrapper</h1>
+        <p class="header">Wrapper functions for Quantmod getSymbols</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/chibondking/datawrapper/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/chibondking/datawrapper/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/chibondking/datawrapper">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/chibondking">chibondking</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a name="purpose" class="anchor" href="#purpose"><span class="octicon octicon-link"></span></a>Purpose</h1>
+
+<p><strong>Note: This documentation is very preliminary and sparse at the time</strong></p>
+
+<p>This package is designed to add new functions to extend the functionality of 
+quantmod's getSymbols function by adding and enhancing new wrappers to retrieve
+data from a variety of sources. Currently this package contains a function for
+retrieving data from a MySQL instance, but I have plans to add Quandl and other
+data providers in the future.</p>
+
+<p>Currently MySQL is a <em>suggested</em> package, if you are using a function which requires
+a certain external package, then it will be <em>required</em></p>
+
+<h1>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h1>
+
+<p>Since this package is extending functionality of the quantmod package, it requires
+that quantmod (version 0.4 or later) already installed on your machine.</p>
+
+<h3>
+<a name="installing-from-cran-not-available" class="anchor" href="#installing-from-cran-not-available"><span class="octicon octicon-link"></span></a>Installing From CRAN (Not available)</h3>
+
+<p>If you're installing this package from CRAN (which we hope to have soon), 
+then typing in the following commands will install the package along with any
+required dependencies:</p>
+
+<p><code>install.packages('datawrapper', dependencies=TRUE)</code></p>
+
+<h3>
+<a name="installing-package-from-source" class="anchor" href="#installing-package-from-source"><span class="octicon octicon-link"></span></a>Installing package from source</h3>
+
+<p>To install this package from source you can clone this github repository and then
+execute the following sequence of commands. <strong>NOTE: if you're using this method,
+you need to ensure that the latest version of dependent packages are installed (See
+the DESCRIPTION file for current dependencies)</strong>. To install the current dependent 
+package, type in an R session:</p>
+
+<p><code>install.packages('quantmod')</code></p>
+
+<p>After quantmod is installed, go to one directory above where the package has been
+cloned from and then type:</p>
+
+<p><code>R CMD INSTALL datawrapper/</code></p>
+
+<p>If all is well, the package should compile and be installed in your local R site
+library (or user library).</p>
+
+<h3>
+<a name="installation-from-github" class="anchor" href="#installation-from-github"><span class="octicon octicon-link"></span></a>Installation From Github</h3>
+
+<p>Using the <code>devtools</code> package, you can also install datawrapper directly from this
+github repository. You can read more about <a href="http://github.com/hadley/devtools">devtools by clicking here</a>.</p>
+
+<p>Example:</p>
+
+<div class="highlight"><pre><span class="c">install.packages('devtools') #Installs devtools from CRAN</span>
+<span class="c">library(devtools)</span>
+<span class="c">install_github('datawrapper', username='chibondking')</span>
+</pre></div>
+
+<p>This will ensure that you are installing the latest development version of this
+package.</p>
+
+<h3>
+<a name="installation-on-windows" class="anchor" href="#installation-on-windows"><span class="octicon octicon-link"></span></a>Installation on windows</h3>
+
+<p>The same install steps as installing the package from source will apply, however
+you will need <a href="http://cran.r-project.org/bin/windows/Rtools/">RTools</a> installed on
+the Windows machine.</p>
+
+<p>To install on Windows and generate a Zip binary file to install on other machines
+that do not have Rtools installed:</p>
+
+<p><code>R CMD INSTALL --build datawrapper/</code></p>
+
+<p>This should install the package in your local Windows R site library and also generate
+a binary zip file that can be used to install this package on other Windows machines
+that do not have Rtools installed.</p>
+
+<h1>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h1>
+
+<p>Currently this package has the function <code>getSymbols.Fogbank</code> installed. You can
+retrieve data by specifying values in the function call to retrieve a symbol that
+currently exists in your MySQL instance. You can also override column defaults
+if your columns are different than some of the standard ways of storing symbol
+data.</p>
+
+<p>Please note that each symbol in your MySQL database must be stored in it's own 
+table in order for the <code>getSymbols.Fogbank</code> function to work properly.</p>
+
+<h3>
+<a name="r-function-documentation" class="anchor" href="#r-function-documentation"><span class="octicon octicon-link"></span></a>R Function documentation</h3>
+
+<div class="highlight"><pre><span class="c">getSymbols.Fogbank(Symbols = NULL,</span>
+<span class="c">  env = parent.frame(),</span>
+<span class="c">  return.class="xts",</span>
+<span class="c">  db.fields=c("Date","o","h","l","c","v","a"),</span>
+<span class="c">  field.names=c("Open","High","Low","Close","Volume","Adjusted"),</span>
+<span class="c">  dbname=NULL</span>
+<span class="c">  host="localhost",</span>
+<span class="c">  port=3306,</span>
+<span class="c">  ...)</span>
+
+</pre></div>
+
+<h4>
+<a name="parameters" class="anchor" href="#parameters"><span class="octicon octicon-link"></span></a>Parameters:</h4>
+
+<ul>
+<li>Symbols: a character vector specifying the names of each symbol to load</li>
+<li>env: where to create the symbol objects</li>
+<li>return.class: what type of class should the symbol object be returned as</li>
+<li>db.fields: each of the column names that exist in each symbol table located
+in the MySQL database.</li>
+<li>field.names: on the returned object, what should be name each of the columns
+on the object</li>
+<li>dbname: the database table name</li>
+<li>host: the hostname of the MySQL database. Default is localhost</li>
+<li>port: the port to connect to the MySQL database with. Default 3306</li>
+<li>... : Any other passthru parameters</li>
+</ul><h3>
+<a name="using-defaults" class="anchor" href="#using-defaults"><span class="octicon octicon-link"></span></a>Using Defaults</h3>
+
+<p>Example using defaults to get symbols:</p>
+
+<div class="highlight"><pre><span class="c">library(datawrapper)</span>
+<span class="c">getSymbols("YHOO", src="Fogbank")</span>
+</pre></div>
+
+<p>This will load the quantmod package when loading the datawrapper package.</p>
+
+<h3>
+<a name="specifying-default-values-in-each-r-session" class="anchor" href="#specifying-default-values-in-each-r-session"><span class="octicon octicon-link"></span></a>Specifying default values in each R session</h3>
+
+<div class="highlight"><pre><span class="c"> #Override default column and field names</span>
+<span class="c">    setDefaults(getSymbols.Fogbank, user="user", password="pass", host="localhost",</span>
+<span class="c">      port=3306, dbname="histdata", db.fields=c('Date','o','h','l','c','v'), </span>
+<span class="c">      field.names=c("Open","High","Low","Close","Volume"))</span>
+<span class="c">    getSymbols("SPX", src="Fogbank")</span>
+</pre></div>
+
+<h1>
+<a name="references" class="anchor" href="#references"><span class="octicon octicon-link"></span></a>References</h1>
+
+<ul>
+<li><a href="http://www.quantmod.com">quantmod Package Home</a></li>
+<li><a href="http://cran.r-project.org/web/packages/quantmod/index.html">Quantmod CRAN Page</a></li>
+<li><a href="http://cran.r-project.org/web/packages/quantmod/quantmod.pdf">Quantmod Reference Manual</a></li>
+</ul>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
