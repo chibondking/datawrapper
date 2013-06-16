@@ -55,8 +55,8 @@
 				rs <- dbSendQuery(con, query)
 				fr <- fetch(rs, n=-1)
 				fr <- xts(as.matrix(fr[,-1]), order.by=as.Date(fr[,1],origin='1970-01-01'),
-            src=dbname,updated=Sys.time()) colnames(fr) <- paste(Symbols[[i]], 
-            field.names, sep='.')
+            src=dbname,updated=Sys.time()) 
+        colnames(fr) <- paste(Symbols[[i]], field.names, sep='.')
 				fr <- .convert.time.series(fr=fr,return.class=return.class)
 				if(auto.assign) {
 						assign(Symbols[[i]],fr,env)
