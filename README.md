@@ -27,6 +27,22 @@ the latest version of quantmod is installed:
 
 `install.packages('quantmod')`
 
+Installation From Github
+------------------------
+Using the `devtools` package, you can also install datawrapper directly from this
+github repository. You can read more about [devtools by clicking here](
+http://github.com/hadley/devtools).
+
+Example:
+>
+> install.packages('devtools') #Installs devtools from CRAN
+> library(devtools)
+> install_github('datawrapper', username='chibondking')
+
+This will ensure that you are installing the latest development version of this
+package.
+
+
 Usage
 =====
 
