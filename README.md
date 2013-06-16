@@ -56,6 +56,35 @@ data.
 Please note that each symbol in your MySQL database must be stored in it's own 
 table in order for the `getSymbols.Fogbank` function to work properly.
 
+### R Function documentation
+```r
+getSymbols.Fogbank(Symbols = NULL,
+  env = parent.frame(),
+  return.class="xts",
+  db.fields=c("Date","o","h","l","c","v","a"),
+  field.names=c("Open","High","Low","Close","Volume","Adjusted"),
+  dbname=NULL
+  host="localhost",
+  port=3306,
+  ...)
+
+```
+
+Parameters:
+-----------
+* Symbols: a character vector specifying the names of each symbol to load
+* env: where to create the symbol objects
+* return.class: what type of class should the symbol object be returned as
+* db.fields: each of the column names that exist in each symbol table located
+    in the MySQL database.
+* field.names: on the returned object, what should be name each of the columns
+    on the object
+* dbname: the database table name
+* host: the hostname of the MySQL database. Default is localhost
+* port: the port to connect to the MySQL database with. Default 3306
+* ... : Any other passthru parameters
+
+
 ### Using Defaults
 Example using defaults to get symbols:
 
@@ -65,6 +94,17 @@ getSymbols("YHOO", src="Fogbank")
 ```
 
 This will load the quantmod package when loading the datawrapper package.
+
+### Specifying default values in each R session
+
+```r
+ #Override default column and field names
+    setDefaults(getSymbols.Fogbank, user="user", password="pass", host="localhost",
+      port=3306, dbname="histdata", db.fields=c('Date','o','h','l','c','v'), 
+      field.names=c("Open","High","Low","Close","Volume"))
+    getSymbols("SPX", src="Fogbank")
+```
+
 
 References
 ==========

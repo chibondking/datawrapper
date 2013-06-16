@@ -31,6 +31,7 @@ getSymbols.Fogbank(Symbols = NULL,
 \item{dbname}{ the database table name}
 \item{host}{ the hostname of the MySQL database. Default is localhost}
 \item{port}{ the port to connect to the MySQL database with. Default 3306}
+\item{...}{ Any other passthru parameters }
 } 
 \details{
 %%  ~~ If necessary, more details than the description above ~~
