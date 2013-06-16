@@ -16,19 +16,33 @@ Installation
 ============
 
 Since this package is extending functionality of the quantmod package, it requires
-that quantmod (version 0.4 or later) already installed on your machine. If you're 
-installing this package from CRAN (which we hope to have soon), then typing in the 
-following commands will satisfy this dependency:
+that quantmod (version 0.4 or later) already installed on your machine.
+
+### Installing From CRAN (Not available)
+If you're installing this package from CRAN (which we hope to have soon), 
+then typing in the following commands will install the package along with any
+required dependencies:
 
 `install.packages('datawrapper', dependencies=TRUE)`
 
-If you're not installing this package from CRAN, then you should make sure that
-the latest version of quantmod is installed:
+### Installing package from source
+To install this package from source you can clone this github repository and then
+execute the following sequence of commands. **NOTE: if you're using this method,
+you need to ensure that the latest version of dependent packages are installed (See
+the DESCRIPTION file for current dependencies)**. To install the current dependent 
+package, type in an R session:
 
 `install.packages('quantmod')`
 
-Installation From Github
-------------------------
+After quantmod is installed, go to one directory above where the package has been
+cloned from and then type:
+
+`R CMD INSTALL datawrapper/`
+
+If all is well, the package should compile and be installed in your local R site
+library (or user library).
+
+### Installation From Github
 Using the `devtools` package, you can also install datawrapper directly from this
 github repository. You can read more about [devtools by clicking here](
 http://github.com/hadley/devtools).
@@ -42,6 +56,20 @@ install_github('datawrapper', username='chibondking')
 
 This will ensure that you are installing the latest development version of this
 package.
+
+### Installation on windows
+The same install steps as installing the package from source will apply, however
+you will need [RTools](http://cran.r-project.org/bin/windows/Rtools/) installed on
+the Windows machine.
+
+To install on Windows and generate a Zip binary file to install on other machines
+that do not have Rtools installed:
+
+`R CMD INSTALL --build datawrapper/`
+
+This should install the package in your local Windows R site library and also generate
+a binary zip file that can be used to install this package on other Windows machines
+that do not have Rtools installed.
 
 
 Usage
