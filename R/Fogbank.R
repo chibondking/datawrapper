@@ -73,5 +73,5 @@
 		}
 }
 
-"getSymbols.mysql" <- getSymbols.MySQL
+"getSymbols.Fogbank" <- getSymbols.Fogbank
 # }}}
