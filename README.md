@@ -58,10 +58,11 @@ table in order for the `getSymbols.Fogbank` function to work properly.
 
 ### Using Defaults
 Example using defaults to get symbols:
->
->library(datawrapper)
->
->getSymbols("YHOO", src="Fogbank")
+
+```r
+library(datawrapper)
+getSymbols("YHOO", src="Fogbank")
+```
 
 This will load the quantmod package when loading the datawrapper package.
 
