@@ -3,39 +3,45 @@
 \alias{datawrapper}
 \docType{package}
 \title{
-What the package does (short line)
-~~ package title ~~
+A collection of wrappers for Quantmod getSymbols to retrieve data from various sources
 }
 \description{
-More about what it does (maybe more than one line)
-~~ A concise (1-5 lines) description of the package ~~
+A collection of wrappers for Quantmod getSymbols to retrieve data from various sources
 }
 \details{
 \tabular{ll}{
 Package: \tab datawrapper\cr
 Type: \tab Package\cr
-Version: \tab 1.0\cr
+Version: \tab 0.1\cr
 Date: \tab 2013-06-15\cr
-License: \tab What license is it under?\cr
+Depends: \tab R (>= 3.0.0), quantmod (>= 0.4.0)\cr
+Suggests: \tab RMySQL, Quandl\cr
+Enhances: \tab quantmod\cr
+License: \tab GPL-3\cr
+URL: \tab https://github.com/chibondking/datawrapper\cr
+URL: \tab http://www.quantmod.com\cr
 }
-~~ An overview of how to use the package, including the most important functions ~~
+\emph{About}
+This package is a collection of wrappers that extends Quantmod's 
+getSymbols functionality to use a variety of data sources. Quantmod contains
+a variety of wrappers already that can be used as is, however these are designed
+to be templates for extending your own custom data wrappers. This package provides
+a small sample of wrappers that I have found useful in retrieving certain types of
+data stored locally and through various third party data providers.
+
 }
 \author{
-Who wrote it
+Cedrick Johnson, with code used from the Quantmod project (Jeffery Ryan, et. al)
 
-Maintainer: Who to complain to <yourfault@somewhere.net>
-~~ The author and/or maintainer of the package ~~
+Maintainer: Cedrick Johnson <cedrickj@atysbonds.com>
 }
 \references{
-~~ Literature or other references for background information ~~
+
 }
-~~ Optionally other standard keywords, one per line, from file KEYWORDS in the R ~~
-~~ documentation directory ~~
 \keyword{ package }
+\keyword{ quantmod }
+\keyword{ getSymbols }
 \seealso{
-~~ Optional links to other man pages, e.g. ~~
-~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
+  \code{\link[quantmod]{quantmod}}
 }
-\examples{
-~~ simple examples of the most important functions ~~
 }
