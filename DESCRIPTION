@@ -1,0 +1,22 @@
+Package: datawrapper
+Type: Package
+Title: A collection of wrappers for Quantmod getSymbols to retrieve data from various sources
+Version: 0.1 
+Date: 2013-06-15
+Authors@R: c(person("Cedrick", "Johnson", role=c("aut","cre"), 
+  email="cedrickj@atysbonds.com"),
+  person("Jeffrey","Ryan", role=c("cre")))
+Maintainer: Cedrick Johnson <cedrickj@atysbonds.com>
+Description: This package is a collection of wrappers that extends Quantmod's 
+  getSymbols functionality to use a variety of data sources. Quantmod contains
+  a variety of wrappers already that can be used as is, however these are designed
+  to be templates for extending your own custom data wrappers. This package provides
+  a small sample of wrappers that I have found useful in retrieving certain types of
+  data stored locally and through various third party data providers.
+License: GPL-3
+Depends: R (>= 3.0.0), quantmod (>= 0.4.0)
+Suggests: RMySQL, Quandl
+Enhances: quantmod
+LazyLoad: yes
+URL: https://github.com/chibondking/datawrapper http://www.quantmod.com
+  http://r-forge.r-project.org/projects/quantmod
