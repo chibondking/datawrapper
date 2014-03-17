@@ -74,4 +74,5 @@
 }
 
 "getSymbols.Fogbank" <- getSymbols.Fogbank
+"getSymbols.fogbank" <- getSymbols.Fogbank
 # }}}
