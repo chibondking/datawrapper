@@ -3,9 +3,7 @@ Type: Package
 Title: A collection of wrappers for Quantmod getSymbols to retrieve data from various sources
 Version: 0.3 
 Date: 2015-01-15
-Authors@R: c(person("Cedrick", "Johnson", role=c("aut","cre"), 
-  email="cedrickj@atysbonds.com"),
-  person("Jeffrey","Ryan", role=c("cre")))
+Authors: Cedrick Johnson <cedrickj@atysbonds.com>
 Maintainer: Cedrick Johnson <cedrickj@atysbonds.com>
 Description: This package is a collection of wrappers that extends Quantmod's 
   getSymbols functionality to use a variety of data sources. Quantmod contains
